@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #e7e7e7;
+}
+
+.box {
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.box.code {
+    display: none;
+}
+
+.box.phone, .box.code {
+    text-align: center;
+    width: 300px;
+    margin: 20% auto;
+    background: #ffffff;
+}
+
+.box.phone input, .box.code input, .box.registration input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 5px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 39, 255, 0.37);
+    text-align: center;
+}
+
+.box.phone button, .box.code button, .box.registration button {
+    font-weight: 500;
+    width: 100%;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    transition: 0.5s;
+    margin-bottom: 5px;
+}
+
+.box.phone button:hover, .box.code button:hover, .box.registration button:hover {
+    background: rgba(0, 39, 255, 0.37);
+    color: #ffffff;
+}
+
+.errors ul {
+    list-style: none;
+}
+
+.errors ul li {
+    font-size: 12px;
+    color: #880000;
+}
+
+.box.registration {
+    text-align: center;
+    width: 500px;
+    margin: 20% auto;
+    background: #ffffff;
+}
+
+.box.profile {
+    text-align: center;
+    width: 500px;
+    margin: 20% auto;
+    background: #ffffff;
+}
+
+.box.profile .field{
+    font-weight: 400;
+    width: 100%;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    transition: 0.5s;
+    margin-bottom: 5px;
+}
+
+.box.profile h2{
+    color: rgba(0, 39, 255, 0.37);
+    margin-bottom: 10px;
+}
+
+.notification {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+    background: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    margin: 15px;
+    padding: 15px;
+    display: none;
+    cursor: pointer;
+}
+
+.repeatCode {
+    float: right;
+    display: block;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    color: rgba(0, 39, 255, 0.9);
+    margin-top: 20px;
+    width: 100%;
+    height: 20px;
+}
