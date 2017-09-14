@@ -19,7 +19,8 @@ class App
 
     public function __construct($config)
     {
-        $this->viewManager = new $config['viewManager']['class'];
+        $this->setViewManager(new $config['viewManager']['class']);
+        $this->setRouter(new $config['router']['class']);
     }
 
     /**

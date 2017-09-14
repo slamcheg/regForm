@@ -5,7 +5,6 @@ require_once "bootstrap.php";
 $config = require_once "config/local.php";
 
 $application = new App($config);
-$application->setRouter(new $config['router']['class']);
 $application->getRouter()->setRoutes([
     '/' => function () use ($application) {
         $authConfirmed = isset($_COOKIE['authConfirmed']) ? $_COOKIE['authConfirmed'] : false;
@@ -71,5 +70,4 @@ $application->getRouter()->setRoutes([
         header('Location: /');
     }
 ]);
-
 $application->run();
