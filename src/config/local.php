@@ -5,7 +5,6 @@ return [
         'class' => \Application\Components\SimpleRouter::class,
     ],
     'viewManager' => [
-        'class' => \Application\View\ViewManager::class,
-
+        'class' => \Application\Components\ViewManager::class
     ]
 ];

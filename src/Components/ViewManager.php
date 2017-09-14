@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\View;
+namespace Application\Components;
 use Application\Interfaces\ViewManagerInterface;
 
 /**
