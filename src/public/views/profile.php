@@ -26,6 +26,8 @@
         <label>Password : </label>
         <span><?= isset($_COOKIE['password']) ? $_COOKIE['password'] : '' ?></span>
     </div>
+
+    <a class="logout" href="/?r=logout">Logout</a>
 </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>

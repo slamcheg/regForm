@@ -8,6 +8,10 @@ $application = new App($config);
 $application->setRouter(new $config['router']['class']);
 $application->getRouter()->setRoutes([
     '/' => function () use ($application) {
+        $authConfirmed = isset($_COOKIE['authConfirmed']) ? $_COOKIE['authConfirmed'] : false;
+        if ($authConfirmed) {
+            header('Location: /?r=profile');
+        }
         $application->getViewManager()->setViewPath('public/views/home.php');
         $application->getViewManager()->renderView();
     },
@@ -24,7 +28,7 @@ $application->getRouter()->setRoutes([
         if ($codeConfirmed) {
             $authConfirmed = isset($_COOKIE['authConfirmed']) ? $_COOKIE['authConfirmed'] : false;
             if ($authConfirmed) {
-                header('Location: ' . '/?r=profile');
+                header('Location: /?r=profile');
             } else {
                 $registrationForm = new \Application\Forms\RegistrationForm();
                 if ($registrationForm->load($_POST) && !$registrationForm->hasErrors()) {
@@ -33,7 +37,7 @@ $application->getRouter()->setRoutes([
                     setcookie('phone', $registrationForm->phone);
                     setcookie('email', $registrationForm->email);
                     setcookie('password', $registrationForm->password);
-                    header('Location: ' . '/?r=profile');
+                    header('Location: /?r=profile');
                 } else {
                     $application->getViewManager()->setViewPath('public/views/registration.php');
                     $application->getViewManager()->renderView(['errors' => $registrationForm->getErrors()]);
@@ -42,7 +46,7 @@ $application->getRouter()->setRoutes([
             }
 
         } else {
-            header('Location: ' . '/');
+            header('Location: /');
         }
     },
     'profile' => function () use ($application) {
@@ -51,10 +55,20 @@ $application->getRouter()->setRoutes([
             $application->getViewManager()->setViewPath('public/views/profile.php');
             $application->getViewManager()->renderView();
         } else {
-            header('Location: ' . '/');
+            header('Location: /');
         }
     },
     'logout' => function () use ($application) {
+        \Application\Helpers\CookieHelper::clearCookies([
+            'authConfirmed',
+            'authId',
+            'codeConfirmed',
+            'fullName',
+            'phone',
+            'email',
+            'password'
+        ]);
+        header('Location: /');
     }
 ]);
 
