@@ -6,5 +6,5 @@
 -  Перейти в папку с проектом
 - `composer install` 
 -  Открыть консоль и прописать
-`php -S localhost:3000 pathToProject/src`
+`php -S localhost:3000 -t pathToProject/src`
 - Далее все можно тестировать по ссылке : `localhost:3000`
